@@ -40,7 +40,7 @@ export const PRODUCTS: Product[] = [
     description:
       "A soft and romantic handmade bouquet designed with delicate floral details and a beautiful blush-inspired appearance. Perfect for birthdays, anniversaries, gifts, and heartfelt surprises.",
     image:
-      "https://www.craftclubco.com/cdn/shop/files/craft-club-pipe-cleaner-craft-kit-blushing%20bouquet-pipe-cleaner-bouquet-kit-1237034548.png?crop=center&height=1200&v=1778143151&width=1200",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdf25i5X2UdIyvGtvOgQcZLKtVn2feGDoVgX52mBoX2_6qtM4Cot-ZCRj&s=10",
     startingPrice: "LKR XXX",
     badge: "Bestseller",
   },
@@ -130,17 +130,17 @@ export const DELIVERY_OPTIONS: {
   description: string;
   price: string;
 }[] = [
-  {
-    id: "Self Pickup",
-    description: `Collect your order from our delivery/pickup place (${PICKUP_LOCATION})`,
-    price: "FREE",
-  },
-  {
-    id: "Courier Service",
-    description: "Island-wide delivery through courier service",
-    price: "To be confirmed",
-  },
-];
+    {
+      id: "Self Pickup",
+      description: `Collect your order from our delivery/pickup place (${PICKUP_LOCATION})`,
+      price: "FREE",
+    },
+    {
+      id: "Courier Service",
+      description: "Island-wide delivery through courier service",
+      price: "To be confirmed",
+    },
+  ];
 
 /* ---------------------------- Testimonials ---------------------------- */
 

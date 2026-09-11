@@ -16,11 +16,13 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex min-w-0 items-center gap-3">
-            <img
-              src={LOGO_URL}
-              alt={`${BUSINESS_NAME} logo`}
-              className="h-14 w-14 shrink-0 rounded-full object-cover ring-1 ring-border"
-            />
+            <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-1 ring-border">
+              <img
+                src={LOGO_URL}
+                alt={`${BUSINESS_NAME} logo`}
+                className="h-full w-full scale-125 object-cover"
+              />
+            </span>
             <span className="font-display text-2xl text-foreground">{BUSINESS_NAME}</span>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
