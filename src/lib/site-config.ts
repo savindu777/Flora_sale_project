@@ -12,7 +12,7 @@ export const WHATSAPP_NUMBER = "94702655501";
 export const TIKTOK_URL = "https://www.tiktok.com/en/";
 export const PICKUP_LOCATION = "Colombo, Sri Lanka";
 /** Shared Zara Blooms logo used in navigation, footer, favicon and preloader. */
-export const LOGO_URL = "/logo.png";
+export const LOGO_URL = `${import.meta.env.BASE_URL}logo.png`;
 
 export const whatsappLink = (message?: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
@@ -41,7 +41,7 @@ export const PRODUCTS: Product[] = [
       "A soft and romantic handmade bouquet designed with delicate floral details and a beautiful blush-inspired appearance. Perfect for birthdays, anniversaries, gifts, and heartfelt surprises.",
     image:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkdf25i5X2UdIyvGtvOgQcZLKtVn2feGDoVgX52mBoX2_6qtM4Cot-ZCRj&s=10",
-    startingPrice: "LKR XXX",
+    startingPrice: "LKR 4000",
     badge: "Bestseller",
   },
   {
@@ -52,7 +52,7 @@ export const PRODUCTS: Product[] = [
       "An elegant handcrafted floral arrangement designed to bring timeless beauty to your special moments. Customize the colors to create a bouquet that feels uniquely yours.",
     image:
       "https://bloompoem.com/cdn/shop/files/O1CN016dGWWi27z8wBiOpix__4611686018427381307-0-fleamarket_jpg_790x10000Q90_jpg.webp?v=1780560163",
-    startingPrice: "LKR XXX",
+    startingPrice: "LKR 4500",
     badge: "Popular",
   },
   {
@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
     description:
       "A charming handcrafted bouquet created for joyful celebrations. A beautiful choice for birthdays, anniversaries, Valentine's Day, weddings, and thoughtful gifts.",
     image: "https://www.sendabasket.com.au/images/products/large/hvq2m2rppt.jpg",
-    startingPrice: "LKR XXX",
+    startingPrice: "LKR 6000",
     badge: "New",
   },
   {
@@ -72,7 +72,7 @@ export const PRODUCTS: Product[] = [
     description:
       "A luxurious floral gift basket combining an elegant presentation with handmade floral craftsmanship. Ideal for memorable celebrations and premium gifting.",
     image: "https://img.staticdj.com/a3c022d43063d1534eed4c97f4b3cd31_750x.jpg",
-    startingPrice: "LKR XXX",
+    startingPrice: "LKR 3500",
     badge: "Featured",
   },
   {
@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     description:
       "A beautiful handmade floral basket designed to make gifting extra special. Choose your preferred colors and create a personalized arrangement for someone you love.",
     image: "https://images.meesho.com/images/products/1003821716/jgukl_512.webp?width=512",
-    startingPrice: "LKR XXX",
+    startingPrice: "LKR 3000",
     badge: "Popular",
   },
 ];
