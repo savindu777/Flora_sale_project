@@ -148,11 +148,10 @@ function Home() {
                 type="button"
                 onClick={() => setFilter(f)}
                 aria-pressed={filter === f}
-                className={`rounded-full border px-6 py-2.5 text-sm transition-colors ${
-                  filter === f
+                className={`rounded-full border px-6 py-2.5 text-sm transition-colors ${filter === f
                     ? "border-primary bg-primary text-primary-foreground"
                     : "border-border bg-card text-foreground hover:border-accent"
-                }`}
+                  }`}
               >
                 {f}
               </button>
