@@ -1,14 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import {
-  Gift,
-  Hand,
-  Heart,
-  MapPin,
-  Palette,
-  Phone,
-  Sparkles,
-  Star,
-} from "lucide-react";
+import { Gift, Hand, Heart, MapPin, Palette, Phone, Sparkles, Star } from "lucide-react";
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
@@ -66,7 +57,7 @@ const STEPS = [
   },
 ];
 
-const FILTERS = ["All", "Bouquets", "Baskets"] as const;
+const FILTERS = ["All", "Mini Pots", "Bouquets", "Baskets"] as const;
 
 function Home() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");
@@ -114,7 +105,6 @@ function Home() {
               </a>
             </div>
           </Reveal>
-
         </div>
       </section>
 
@@ -191,8 +181,11 @@ function Home() {
                       {p.description}
                     </p>
                     <p className="mt-5 text-sm text-foreground">
-                      Starting from <span className="font-medium">{p.startingPrice}</span>
+                      Price <span className="font-medium">{p.startingPrice}</span>
                     </p>
+                    {p.priceNote && (
+                      <p className="mt-1 text-xs font-medium text-accent">{p.priceNote}</p>
+                    )}
                     <Link
                       to="/product/$productId"
                       params={{ productId: p.id }}

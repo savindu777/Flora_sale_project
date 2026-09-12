@@ -24,7 +24,10 @@ export const Route = createFileRoute("/product/$productId")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Product not found | Zara Blooms" }, { name: "robots", content: "noindex" }],
+        meta: [
+          { title: "Product not found | Zara Blooms" },
+          { name: "robots", content: "noindex" },
+        ],
       };
     }
     const { product } = loaderData;
@@ -46,6 +49,8 @@ export const Route = createFileRoute("/product/$productId")({
 function ProductDetail() {
   const { product } = Route.useLoaderData();
 
+  const galleryImages = product.images ?? [product.image];
+  const [selectedImage, setSelectedImage] = useState(product.image);
   const [quantity, setQuantity] = useState(1);
   const [singleColor, setSingleColor] = useState(false);
   const [primaryColor, setPrimaryColor] = useState("");
@@ -74,15 +79,15 @@ function ProductDetail() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (quantity < 1) e['quantity'] = "Quantity must be at least 1.";
-    if (!primaryColor) e['primaryColor'] = "Please select a primary color.";
-    if (!effectiveSecond) e['secondColor'] = "Please select a second color or choose single color.";
-    if (!resolvedOccasion) e['occasion'] = "Please choose your occasion.";
-    if (!delivery) e['delivery'] = "Please select a delivery method.";
-    if (!name.trim()) e['name'] = "Please enter your name.";
-    if (!phone.trim()) e['phone'] = "Phone number is required.";
+    if (quantity < 1) e["quantity"] = "Quantity must be at least 1.";
+    if (!primaryColor) e["primaryColor"] = "Please select a primary color.";
+    if (!effectiveSecond) e["secondColor"] = "Please select a second color or choose single color.";
+    if (!resolvedOccasion) e["occasion"] = "Please choose your occasion.";
+    if (!delivery) e["delivery"] = "Please select a delivery method.";
+    if (!name.trim()) e["name"] = "Please enter your name.";
+    if (!phone.trim()) e["phone"] = "Phone number is required.";
     else if (!isValidSriLankanPhone(phone))
-      e['phone'] = "Enter a valid Sri Lankan mobile number (07XXXXXXXX).";
+      e["phone"] = "Enter a valid Sri Lankan mobile number (07XXXXXXXX).";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -166,11 +171,31 @@ function ProductDetail() {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div className="overflow-hidden rounded-3xl border border-border/70 bg-card shadow-soft">
               <img
-                src={product.image}
+                src={selectedImage}
                 alt={product.name}
                 className="aspect-square w-full object-cover"
               />
             </div>
+            {galleryImages.length > 1 && (
+              <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-5">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={image}
+                    type="button"
+                    onClick={() => setSelectedImage(image)}
+                    aria-label={`View ${product.name} photo ${index + 1}`}
+                    aria-pressed={selectedImage === image}
+                    className={`overflow-hidden rounded-xl border-2 transition-colors focus-visible:outline-2 focus-visible:outline-ring ${
+                      selectedImage === image
+                        ? "border-accent"
+                        : "border-transparent hover:border-border"
+                    }`}
+                  >
+                    <img src={image} alt="" className="aspect-square w-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
             <p className="eyebrow mt-6">{product.category}</p>
             <h1 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
               {product.name}
@@ -179,8 +204,11 @@ function ProductDetail() {
               {product.description}
             </p>
             <p className="mt-5 text-lg text-foreground">
-              Starting from <span className="font-medium">{product.startingPrice}</span>
+              Price <span className="font-medium">{product.startingPrice}</span>
             </p>
+            {product.priceNote && (
+              <p className="mt-1 text-sm font-medium text-accent">{product.priceNote}</p>
+            )}
           </div>
 
           <form onSubmit={handleSubmit} noValidate className="space-y-8">
@@ -245,7 +273,11 @@ function ProductDetail() {
             {/* Occasion */}
             <section className="rounded-3xl border border-border/70 bg-card p-6 shadow-soft">
               <h2 className="font-display text-xl text-foreground">Choose Your Occasion</h2>
-              <div role="radiogroup" aria-label="Occasion" className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              <div
+                role="radiogroup"
+                aria-label="Occasion"
+                className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3"
+              >
                 {OCCASIONS.map((o) => (
                   <button
                     key={o}
@@ -379,7 +411,10 @@ function ProductDetail() {
                   ["Customer Name", name || "—"],
                   ["Contact Number", phone ? normalizePhone(phone) : "—"],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between gap-4 border-b border-border/60 pb-2">
+                  <div
+                    key={k}
+                    className="flex justify-between gap-4 border-b border-border/60 pb-2"
+                  >
                     <dt className="text-muted-foreground">{k}</dt>
                     <dd className="text-right text-foreground">{v}</dd>
                   </div>
