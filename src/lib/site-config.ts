@@ -170,24 +170,24 @@ export const DELIVERY_OPTIONS: {
   description: string;
   price: string;
 }[] = [
-  {
-    id: "Self Pickup",
-    description: `Collect your order from our delivery/pickup place (${PICKUP_LOCATION})`,
-    price: "FREE",
-  },
-  {
-    id: "Courier Service",
-    description: "Island-wide delivery through courier service",
-    price: "To be confirmed",
-  },
-];
+    {
+      id: "Self Pickup",
+      description: `Collect your order from our delivery/pickup place (${PICKUP_LOCATION})`,
+      price: "FREE",
+    },
+    {
+      id: "Courier Service",
+      description: "Island-wide delivery through courier service",
+      price: "To be confirmed",
+    },
+  ];
 
 /* ---------------------------- Testimonials ---------------------------- */
 
 export const REVIEWS = [
   {
     name: "perera",
-    location: "Colombo",
+    location: "Malabe",
     text: "Absolutely beautiful craftsmanship. The colors were exactly what I wanted and the bouquet looked even better in person.",
   },
   {
