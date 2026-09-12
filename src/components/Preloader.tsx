@@ -25,11 +25,7 @@ export function Preloader() {
     >
       <div className="zb-loader-ring animate-logo-in">
         <div className="zb-loader-ring__inner">
-          <img
-            src={LOGO_URL}
-            alt=""
-            className="h-full w-full rounded-full object-cover"
-          />
+          <img src={LOGO_URL} alt="" className="h-full w-full rounded-full object-cover" />
         </div>
       </div>
       <p className="mt-6 font-display text-2xl tracking-wide text-foreground sm:text-3xl">

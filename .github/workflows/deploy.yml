@@ -32,6 +32,8 @@ jobs:
         run: npm ci
 
       - name: Build project
+        env:
+          BASE_PATH: /Flora_sale_project/
         run: npm run build
 
       - name: Setup GitHub Pages

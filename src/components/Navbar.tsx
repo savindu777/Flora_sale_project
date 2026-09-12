@@ -25,8 +25,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${scrolled ? "border-border bg-cream/95 backdrop-blur shadow-soft" : "border-transparent bg-cream/70 backdrop-blur"
-        }`}
+      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
+        scrolled
+          ? "border-border bg-cream/95 backdrop-blur shadow-soft"
+          : "border-transparent bg-cream/70 backdrop-blur"
+      }`}
     >
       <nav className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" hash="top" className="flex min-w-0 items-center gap-3">
@@ -90,8 +93,9 @@ export function Navbar() {
       </nav>
 
       <div
-        className={`overflow-hidden border-t border-border bg-cream transition-[max-height] duration-300 lg:hidden ${open ? "max-h-96" : "max-h-0 border-t-0"
-          }`}
+        className={`overflow-hidden border-t border-border bg-cream transition-[max-height] duration-300 lg:hidden ${
+          open ? "max-h-96" : "max-h-0 border-t-0"
+        }`}
       >
         <ul className="mx-auto max-w-7xl px-4 py-2 sm:px-6">
           {NAV_LINKS.map((l) => (

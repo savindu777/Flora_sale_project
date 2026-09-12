@@ -85,7 +85,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Zara Blooms | Handmade Floral Crafts in Sri Lanka" },
       {
         name: "description",
-        content: "Handcrafted custom bouquets and floral gift baskets, made with love in Sri Lanka.",
+        content:
+          "Handcrafted custom bouquets and floral gift baskets, made with love in Sri Lanka.",
       },
       { name: "author", content: "Zara Blooms" },
       { property: "og:title", content: "Zara Blooms | Handmade Floral Crafts" },

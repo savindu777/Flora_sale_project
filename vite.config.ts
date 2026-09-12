@@ -10,7 +10,7 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "/Flora_sale_project/",
+  base: process.env.BASE_PATH || "/",
 
   resolve: {
     tsconfigPaths: true,

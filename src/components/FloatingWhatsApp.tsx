@@ -4,7 +4,9 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 export function FloatingWhatsApp() {
   return (
     <a
-      href={whatsappLink(`Hello ${BUSINESS_NAME}! 🌸 I'd like to know more about your handmade floral crafts.`)}
+      href={whatsappLink(
+        `Hello ${BUSINESS_NAME}! 🌸 I'd like to know more about your handmade floral crafts.`,
+      )}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Chat with ${BUSINESS_NAME} on WhatsApp`}
